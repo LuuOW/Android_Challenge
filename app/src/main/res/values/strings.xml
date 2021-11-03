@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Android_Challenge</string>
+    <string name="Title">Not Bored</string>
+    <string name="participants">Participantes</string>
+    <string name="Start">Start</string>
+    <string name="Terms">Terms and conditions</string>
 </resources>
