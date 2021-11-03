@@ -3,19 +3,21 @@ package com.lucaskempe.android_challenge.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lucaskempe.android_challenge.R
-import com.lucaskempe.android_challenge.databinding.ActivityMainBinding
 import com.lucaskempe.android_challenge.entities.ActivityToDo
+import com.lucaskempe.android_challenge.viewModel.ActivityToDoViewModel
 
-class MainActivity : AppCompatActivity() {
+class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
 
-    private lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        
-        
+        setContentView(R.layout.activity_list_type)
     }
+
+    override fun onClickedActivity(activity: ActivityToDo) {
+        TODO("Not yet implemented")
+    }
+
 
 
 }
