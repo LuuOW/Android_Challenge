@@ -1,5 +1,6 @@
 package com.lucaskempe.android_challenge.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lucaskempe.android_challenge.R
@@ -12,7 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
+        binding.btnStart.setOnClickListener {
+            val intent = Intent(this, ListTypeActivity::class.java).apply {
+                putExtra("participants", binding.etParticipant.text.toString())
+            }
+            startActivity(intent)
+        }
         
     }
 }
