@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lucaskempe.android_challenge.R
 import com.lucaskempe.android_challenge.databinding.ActivityMainBinding
+import com.lucaskempe.android_challenge.entities.ActivityToDo
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,4 +23,6 @@ class MainActivity : AppCompatActivity() {
         }
         
     }
+
+
 }
