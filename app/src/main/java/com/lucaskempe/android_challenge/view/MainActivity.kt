@@ -21,6 +21,13 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        binding.tvTerms.setOnClickListener{
+            val intent = Intent(this, TermActivity::class.java).apply {
+                putExtra("participants", binding.etParticipant.text.toString())
+            }
+            startActivity(intent)
+        }
         
     }
 
