@@ -5,54 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.MainActivity"
-    android:background="@color">
+    >
 
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="@string/Title"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/etParticipant"
+
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etParticipant"
         android:layout_width="261dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginTop="188dp"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/btnStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/participants"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etParticipant"
-        tools:layout_editor_absoluteX="70dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="311dp"
         android:layout_height="54dp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="593dp" 
-        android:text="@string/Start"/>
+        android:layout_marginTop="128dp"
+        android:text="@string/Start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etParticipant" />
 
     <TextView
+        android:id="@+id/tvTerms"
         android:layout_width="180dp"
         android:layout_height="27dp"
+        android:layout_marginTop="16dp"
         android:text="@string/Terms"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
