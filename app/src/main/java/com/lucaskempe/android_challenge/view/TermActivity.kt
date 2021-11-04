@@ -18,6 +18,7 @@ class TermActivity : AppCompatActivity() {
         binding.btnClose.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
