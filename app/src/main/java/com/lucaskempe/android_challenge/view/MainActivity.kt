@@ -18,30 +18,35 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
             binding.btnStart.setOnClickListener {
-                if (!binding.etParticipant.text.toString().isNullOrEmpty() &&
-                    Integer.parseInt(binding.etParticipant.text.toString()) >= 1) {
+                if (validateImput()) {
+
                     val intent = Intent(this, ListTypeActivity::class.java).apply {
                         putExtra("participants", binding.etParticipant.text.toString())
                     }
                     startActivity(intent)   
                 } else {
+                    binding.etParticipant.requestFocus()
                     Toast.makeText(this, R.string.errorMessage, Toast.LENGTH_SHORT).show()
                 }
             }
 
-            binding.tvTerms.setOnClickListener {
+
+            binding.tvTerms.setOnClickListener {  //show the terms and conditions
                 val intent = Intent(this, TermActivity::class.java)
                 startActivity(intent)
             }
 
             binding.etParticipant.setOnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
-                    binding.btnStart.isEnabled = !binding.etParticipant.text.toString().isNullOrEmpty() &&
-                                                 Integer.parseInt(binding.etParticipant.text.toString()) >= 1
+                    binding.btnStart.isEnabled = validateImput()
 
                 }
             }
         }
+    fun validateImput(): Boolean{
+        return !binding.etParticipant.text.toString().isNullOrEmpty() &&
+                Integer.parseInt(binding.etParticipant.text.toString()) >= 1
+    }
         
     }
 
