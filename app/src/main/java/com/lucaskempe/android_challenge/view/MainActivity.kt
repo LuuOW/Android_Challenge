@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.renderscript.ScriptGroup
+import android.widget.Toast
 import com.lucaskempe.android_challenge.R
 import com.lucaskempe.android_challenge.databinding.ActivityMainBinding
 import com.lucaskempe.android_challenge.entities.ActivityToDo
@@ -17,10 +18,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
             binding.btnStart.setOnClickListener {
-                val intent = Intent(this, ListTypeActivity::class.java).apply {
-                    putExtra("participants", binding.etParticipant.text.toString())
+                if (!binding.etParticipant.text.toString().isNullOrEmpty() &&
+                    Integer.parseInt(binding.etParticipant.text.toString()) >= 1) {
+                    val intent = Intent(this, ListTypeActivity::class.java).apply {
+                        putExtra("participants", binding.etParticipant.text.toString())
+                    }
+                    startActivity(intent)   
+                } else {
+                    Toast.makeText(this, R.string.errorMessage, Toast.LENGTH_SHORT).show()
                 }
-                startActivity(intent)
             }
 
             binding.tvTerms.setOnClickListener {
@@ -30,7 +36,9 @@ class MainActivity : AppCompatActivity() {
 
             binding.etParticipant.setOnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
-                   binding.btnStart.isEnabled = Integer.parseInt(binding.etParticipant.text.toString()) >= 1
+                    binding.btnStart.isEnabled = !binding.etParticipant.text.toString().isNullOrEmpty() &&
+                                                 Integer.parseInt(binding.etParticipant.text.toString()) >= 1
+
                 }
             }
         }

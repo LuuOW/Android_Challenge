@@ -36,4 +36,5 @@
                              quisque, fusce vulputate semper a nulla velit, duis in orci faucibus turpis. Risus metus
                              magnis aliquam accumsan laoreet congue per, tempus purus et odio senectus sodales vulputate,
                              ligula malesuada dis habitasse nullam pellentesque.</string>
+    <string name="errorMessage">the number of participants is not valid</string>
 </resources>
