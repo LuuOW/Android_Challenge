@@ -24,7 +24,7 @@ class CustomAdapter(private val activityList: Array<ActivityList>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        //HERE WE NEED TO BIND THE CARDVIEW ITEMS...
+        //HERE WE NEED TO BIND THE CARDVIEW ITEMS...'0
 
 
         viewHolder.activityType.text = activityList[position].toString()
