@@ -3,6 +3,7 @@ package com.lucaskempe.android_challenge.view
 import CustomAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,10 +14,10 @@ import com.lucaskempe.android_challenge.databinding.ActivityListTypeBinding
 import com.lucaskempe.android_challenge.entities.ActivityToDo
 import com.lucaskempe.android_challenge.viewModel.ActivityToDoViewModel
 
-class ListTypeActivity : AppCompatActivity() {
+class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
 
     private val listTypeActivity = ActivityList.values()
-    private val adapter = CustomAdapter(listTypeActivity)
+    private val adapter = CustomAdapter(listTypeActivity, this)
     private lateinit var binding: ActivityListTypeBinding
 
 
@@ -29,15 +30,17 @@ class ListTypeActivity : AppCompatActivity() {
         binding.recyclerViewListType.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewListType.adapter = adapter
 
-        val model: ActivityToDoViewModel by ViewModel()
-        model.getActivityToDo().observe(this, Observer<ActivityToDo> {
+        val amountOfParticipants = intent.getStringExtra("participants")
 
-        }
-        )
 
     }
 
-
-
-
+    override fun onClickActivity(queryParameter: String) {
+     Toast.makeText(this,  queryParameter, Toast.LENGTH_SHORT).show()
+/*        ActivityToDoFragment.activityInstance(
+            queryParameter
+        ).show(
+            supportFragmentManager, ActivityToDoFragment.TAG
+        )*/
+    }
 }

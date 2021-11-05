@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         return !binding.etParticipant.text.toString().isNullOrEmpty() &&
                 Integer.parseInt(binding.etParticipant.text.toString()) >= 1
     }
+
+
+    
         
     }
 

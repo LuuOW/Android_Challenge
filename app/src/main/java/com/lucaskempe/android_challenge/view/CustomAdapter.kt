@@ -5,13 +5,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lucaskempe.android_challenge.R
 import com.lucaskempe.android_challenge.data.ActivityList
+import com.lucaskempe.android_challenge.entities.ActivityToDo
 
-class CustomAdapter(private val activityList: Array<ActivityList>) :
+class CustomAdapter(private val activityList: Array<ActivityList>,var listener: CustomListener ) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
+    interface CustomListener {
+        fun onClickActivity(queryParameter: String)
+    }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val activityType: TextView = view.findViewById(R.id.activity_name)
+
+        private lateinit var query: String
+
+        init {
+            itemView.setOnClickListener {
+                listener.onClickActivity(query)
+            }
+        }
 
     }
 
