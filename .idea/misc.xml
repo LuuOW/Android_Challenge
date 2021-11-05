@@ -3,12 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="../../../../layout/custom_preview.xml" value="0.25625" />
         <entry key="app/src/main/res/layout/activity_list_type.xml" value="0.2115036231884058" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_term.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/card_view.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_activity_to_do.xml" value="0.2953125" />
+=======
+        <entry key="../../../../layout/custom_preview.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/activity_list_type.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_term.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/layout/card_view.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_activity_to_do.xml" value="0.4036458333333333" />
+>>>>>>> e4540fc94bafd98b16826b848bc0890cc06202e2
       </map>
     </option>
   </component>

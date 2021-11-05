@@ -4,26 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="78dp"
-    app:cardCornerRadius="16dp">
+    app:cardCornerRadius="16dp"
+    android:background="@color/primaryColor"
+    android:backgroundTint="@color/secondaryColor">
 
     <TextView
         android:id="@+id/activity_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="32dp"
         android:gravity="center"
+        android:textAlignment="textStart"
         android:textSize="24sp"
-        tools:text="exampleText"
-        android:textStyle="bold"/>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="63dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|end"
-        android:layout_marginEnd="32dp"
-        android:background="@android:color/transparent"
-        app:icon="@android:drawable/ic_media_play"
-        app:iconTint="#000000" />
+        android:textStyle="bold"
+        app:drawableEndCompat="@android:drawable/ic_media_play"
+        app:drawableTint="#324DAF"
+        tools:text="exampleText" />
 
 </androidx.cardview.widget.CardView>
