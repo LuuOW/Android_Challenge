@@ -20,7 +20,7 @@ class ToDoActivity : AppCompatActivity() {
     }
 
     private fun getActivity(service: BoredService) {
-        service.getActivities()
+
     }
 
 
