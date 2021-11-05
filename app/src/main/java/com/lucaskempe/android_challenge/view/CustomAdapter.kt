@@ -12,7 +12,7 @@ class CustomAdapter(private val activityList: Array<ActivityList>,var listener: 
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     interface CustomListener {
-        fun onClickActivity()
+        fun onClickActivity(query : String)
     }
 
 
@@ -21,7 +21,7 @@ class CustomAdapter(private val activityList: Array<ActivityList>,var listener: 
         
         init {
             itemView.setOnClickListener {
-                listener.onClickActivity()
+                listener.onClickActivity(activityType.text.toString())
             }
         }
 
