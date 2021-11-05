@@ -1,6 +1,7 @@
 package com.lucaskempe.android_challenge.view
 
 import CustomAdapter
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -12,9 +13,13 @@ import com.lucaskempe.android_challenge.R
 import com.lucaskempe.android_challenge.data.ActivityList
 import com.lucaskempe.android_challenge.databinding.ActivityListTypeBinding
 import com.lucaskempe.android_challenge.entities.ActivityToDo
+import com.lucaskempe.android_challenge.service.BoredService
 import com.lucaskempe.android_challenge.viewModel.ActivityToDoViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
+
 
     private val listTypeActivity = ActivityList.values()
     private val adapter = CustomAdapter(listTypeActivity, this)
@@ -35,13 +40,8 @@ class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
 
     }
 
-    override fun onClickActivity(queryParameter: String) {
-     Toast.makeText(this,  queryParameter, Toast.LENGTH_SHORT).show()
-       ActivityToDoFragment.activityInstance(
-            queryParameter, amountOfParticipants
-        ).show(
-            supportFragmentManager, ActivityToDoFragment.TAG
-       )
-
+    override fun onClickActivity() {
+        val intent = Intent(this, ToDoActivity::class.java)
+        startActivity(intent)
     }
 }

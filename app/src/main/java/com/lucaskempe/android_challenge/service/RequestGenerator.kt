@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "http://www.boredapi.com/api/activity/"
+private const val BASE_URL = "http://www.boredapi.com/api/activity"
 
 class RequestGenerator {
 

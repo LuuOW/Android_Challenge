@@ -20,7 +20,6 @@ class BoredService(private val api: RequestGenerator) {
                 val data : BoredResponse? = response
             }
         }
-
     }
 
 }
