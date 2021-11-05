@@ -3,6 +3,7 @@ package com.lucaskempe.android_challenge.view
 import CustomAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lucaskempe.android_challenge.R
 import com.lucaskempe.android_challenge.data.ActivityList
@@ -21,10 +22,11 @@ class ListTypeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewListType)
-        recyclerView.adapter
+        binding.recyclerViewListType.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewListType.adapter = adapter
 
     }
+
 
 
 

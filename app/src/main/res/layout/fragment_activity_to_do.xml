@@ -1,14 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ActivityToDoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/primaryColor"
+        android:backgroundTint="@color/secondaryColor">
+
+        <TextView
+            android:id="@+id/tvActivities"
+            android:layout_width="228dp"
+            android:layout_height="81dp"
+            android:layout_marginTop="56dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Learn how to play a new sport" />
+
+        <TextView
+            android:id="@+id/tvParticipantsCount"
+            android:layout_width="29dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="52dp"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvActivities"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/tvParticipants"
+            android:layout_width="147dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="88dp"
+            android:text="@string/participants"
+            app:drawableLeftCompat="@android:drawable/ic_menu_myplaces"
+            app:drawableTint="@color/textColor"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toStartOf="@+id/tvParticipantsCount"
+            app:layout_constraintHorizontal_bias="0.165"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvActivities" />
+
+        <Button
+            android:id="@+id/btnAnother"
+            android:layout_width="252dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="464dp"
+            android:text="@string/tryAnother"
+            android:textColor="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvActivities"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/tvPriceDesc"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="52dp"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvPrice"
+            app:layout_constraintTop_toBottomOf="@+id/tvParticipantsCount"
+            tools:text="Medium" />
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="106dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="52dp"
+            app:drawableLeftCompat="@android:drawable/ic_menu_sort_by_size"
+            app:drawableTint="@color/textColor"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.098"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+            tools:text="Relaxation" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="62dp"
+            android:layout_height="21dp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvParticipants" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
