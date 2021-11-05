@@ -22,7 +22,7 @@ class CustomAdapter(private val activityList: Array<ActivityList>,var listener: 
 
         init {
             itemView.setOnClickListener {
-                listener.onClickActivity(query)
+                listener.onClickActivity(activityType.text.toString())
             }
         }
 

@@ -19,7 +19,7 @@ class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
     private val listTypeActivity = ActivityList.values()
     private val adapter = CustomAdapter(listTypeActivity, this)
     private lateinit var binding: ActivityListTypeBinding
-
+    private var amountOfParticipants : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,17 +30,18 @@ class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
         binding.recyclerViewListType.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewListType.adapter = adapter
 
-        val amountOfParticipants = intent.getStringExtra("participants")
+        amountOfParticipants = intent.getStringExtra("participants")
 
 
     }
 
     override fun onClickActivity(queryParameter: String) {
      Toast.makeText(this,  queryParameter, Toast.LENGTH_SHORT).show()
-/*        ActivityToDoFragment.activityInstance(
-            queryParameter
+       ActivityToDoFragment.activityInstance(
+            queryParameter, amountOfParticipants
         ).show(
             supportFragmentManager, ActivityToDoFragment.TAG
-        )*/
+       )
+
     }
 }

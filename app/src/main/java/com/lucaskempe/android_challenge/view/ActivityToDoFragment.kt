@@ -32,7 +32,7 @@ class ActivityToDoFragment : DialogFragment() {
 
     companion object {
         @JvmStatic
-        fun activityInstance(queryParameter: String): ActivityToDoFragment {
+        fun activityInstance(queryParameter: String, AmountOfParticipants: String?): ActivityToDoFragment {
             val frag = ActivityToDoFragment()
             val args = Bundle()
             frag.arguments = args
