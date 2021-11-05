@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lucaskempe.android_challenge.Utils.Result
 import com.lucaskempe.android_challenge.entities.ActivityToDo
+import com.lucaskempe.android_challenge.service.BoredService
 import com.lucaskempe.marvel_mvvm_clean.utils.Data
 import com.lucaskempe.marvel_mvvm_clean.utils.Event
 import com.lucaskempe.marvel_mvvm_clean.utils.Status
@@ -23,7 +24,7 @@ class ActivityToDoViewModel : ViewModel() {
 
     fun onStart() = viewModelScope.launch {
         mutableMainState.value = Event(Data(Status.LOADING))
-        when(val result = withContext(Dispatchers.IO) {} ) {
+        when(val result = withContext(Dispatchers.IO) { } ) {
 /*            is Result.Failure -> {
                 mutableMainState.value = Event(Data(Status.ERROR, results = result.exception))
             }

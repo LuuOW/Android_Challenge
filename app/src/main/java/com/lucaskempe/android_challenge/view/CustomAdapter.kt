@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lucaskempe.android_challenge.R
 import com.lucaskempe.android_challenge.data.ActivityList
 
-class CustomAdapter(private val activityList: ArrayList<ActivityList>) :
+class CustomAdapter(private val activityList: Array<ActivityList>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val activityType: TextView = view.findViewById(R.id.activity_name)
@@ -22,6 +23,10 @@ class CustomAdapter(private val activityList: ArrayList<ActivityList>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
+        //HERE WE NEED TO BIND THE CARDVIEW ITEMS...
+
+
         viewHolder.activityType.text = activityList[position].toString()
     }
 
