@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface BoredAPI {
-  @GET("/{activityName}")
+  @GET("{activityName}")
   suspend fun getThingsToDo(@Query("activityName")activity:String) : Response<BoredResponse>
 }

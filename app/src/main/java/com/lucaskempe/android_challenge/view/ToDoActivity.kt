@@ -2,6 +2,7 @@ package com.lucaskempe.android_challenge.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.lucaskempe.android_challenge.R
 import com.lucaskempe.android_challenge.databinding.ActivityTermBinding
 import com.lucaskempe.android_challenge.databinding.ActivityToDoBinding
@@ -20,7 +21,6 @@ class ToDoActivity () : AppCompatActivity() {
     private lateinit var binding: ActivityToDoBinding
     private var amountOfParticipants : String? = null
     private var typeActivity : String? = null
-    private lateinit var thingToDO : BoredResponse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,15 +31,13 @@ class ToDoActivity () : AppCompatActivity() {
         typeActivity = intent.getStringExtra("activityType")
 
         typeActivity?.let { getActivity(it) }
-
-        binding.tvPrice.text = thingToDO.price.toString()
-        binding.tvParticipants.text = thingToDO.participants.toString()
+        
 
     }
 
     private fun retrofitService() : Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://www.boredapi.com/api/activity")
+            .baseUrl("https://www.boredapi.com/api/activity/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -54,7 +52,7 @@ class ToDoActivity () : AppCompatActivity() {
             runOnUiThread {
                 if (callResponse.isSuccessful) {
                     if (response != null) {
-                        thingToDO = response
+                        binding.tvPrice.text = response.price.toString()
                     }
                 }
             }
