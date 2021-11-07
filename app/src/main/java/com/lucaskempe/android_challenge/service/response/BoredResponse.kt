@@ -4,5 +4,5 @@ data class BoredResponse(
     val activity: String,
     val participants: Int,
     val price: Double,
-    val type: String
+    val type: String,
 )

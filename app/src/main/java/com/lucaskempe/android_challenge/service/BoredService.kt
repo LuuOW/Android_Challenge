@@ -11,7 +11,7 @@ import java.lang.Exception
 class BoredService(private val api: RequestGenerator) {
 
 
-    fun getActivities(query: String) {
+    /*fun getActivities(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val callResponse = api.createService(BoredAPI::class.java).getThingsToDo(query)
             val response: BoredResponse? = callResponse.body()
@@ -21,6 +21,6 @@ class BoredService(private val api: RequestGenerator) {
             }
         }
 
-    }
+    }*/
 
 }

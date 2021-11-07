@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 
 class ActivityToDoViewModel(private val getActivity: BoredService, private val queryParameter: String) : ViewModel() {
 
-    private val activityToDo: MutableLiveData<ActivityToDo> by lazy {
+   /* private val activityToDo: MutableLiveData<ActivityToDo> by lazy {
         MutableLiveData<ActivityToDo>().also {
             loadActivity()
         }
@@ -24,6 +24,6 @@ class ActivityToDoViewModel(private val getActivity: BoredService, private val q
 
     private fun loadActivity() {
         getActivity.getActivities(queryParameter)
-    }
+    }*/
 
 }

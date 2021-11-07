@@ -6,6 +6,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface BoredAPI {
-  @GET("{activityName}")
-  suspend fun getThingsToDo(@Query("activityName")activity:String) : Response<BoredResponse>
+  companion object {
+    const val BASE_URL = "https://www.boredapi.com/"
+  }
+  @GET("api/activity/")
+  suspend fun getThingsToDo(@Query("type")activity: String,
+                            @Query("participants") participants: String) : Response<BoredResponse>
+
+  suspend fun getRandomThingToDo() : Response<BoredResponse>
 }

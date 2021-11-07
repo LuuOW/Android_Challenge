@@ -43,4 +43,6 @@ class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
         }
         startActivity(intent)
     }
+
+
 }
