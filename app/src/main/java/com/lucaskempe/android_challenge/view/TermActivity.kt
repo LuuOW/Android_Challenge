@@ -15,6 +15,8 @@ class TermActivity : AppCompatActivity() {
         binding = ActivityTermBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         binding.btnClose.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

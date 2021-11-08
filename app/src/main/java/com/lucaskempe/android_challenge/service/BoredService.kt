@@ -6,21 +6,26 @@ import com.lucaskempe.android_challenge.service.response.BoredResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
+import java.util.*
 
-class BoredService(private val api: RequestGenerator) {
+class BoredService() {
 
+    suspend fun getActivity(type: String, participants: String) : BoredResponse? {
+        var body : BoredResponse? = null
 
-    /*fun getActivities(query: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val callResponse = api.createService(BoredAPI::class.java).getThingsToDo(query)
+            val callResponse = retrofitService.retrofit
+                .create(BoredAPI::class.java)
+                .getThingsToDo(type.lowercase(Locale.getDefault()), participants)
             val response: BoredResponse? = callResponse.body()
 
             if (callResponse.isSuccessful) {
-                val data : BoredResponse? = response
+                body = response
             }
-        }
-
-    }*/
+        return body
+    }
 
 }
+

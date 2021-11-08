@@ -1,6 +1,6 @@
 <resources>
     <!-- Activity Main String -->
-    <string name="app_name">Android_Challenge</string>
+    <string name="app_name">Not Bored</string>
     <string name="Title">Not Bored</string>
     <string name="participants">Participantes</string>
     <string name="Start">Start</string>
@@ -39,9 +39,5 @@
     <string name="errorMessage"> the number of participants is not valid </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="price">Price</string>
-    <string name="priceFree">Free</string>
-    <string name="priceLow">Low</string>
-    <string name="priceMedium">Medium</string>
-    <string name="priceHigh">High</string>
     <string name="tryAnother">Try another</string>
 </resources>

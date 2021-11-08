@@ -2,76 +2,65 @@ package com.lucaskempe.android_challenge.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.lucaskempe.android_challenge.view.ListTypeActivity
-import android.widget.Toast
-import com.lucaskempe.android_challenge.R
-import com.lucaskempe.android_challenge.databinding.ActivityTermBinding
+import androidx.core.view.isVisible
+import com.lucaskempe.android_challenge.UtilsFunc
 import com.lucaskempe.android_challenge.databinding.ActivityToDoBinding
-import com.lucaskempe.android_challenge.entities.ActivityToDo
 import com.lucaskempe.android_challenge.service.BoredService
-import com.lucaskempe.android_challenge.service.api.BoredAPI
-import com.lucaskempe.android_challenge.service.api.BoredAPI.Companion.BASE_URL
-import com.lucaskempe.android_challenge.service.response.BoredResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
+
 
 class ToDoActivity () : AppCompatActivity() {
 
     private lateinit var binding: ActivityToDoBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityToDoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         val amountOfParticipants = intent.getStringExtra("participants") ?: "0"
-        val typeActivity = intent.getStringExtra("activityType")
+        val typeActivity = intent.getStringExtra("activityType") ?: ""
 
-        typeActivity?.let { getActivity(it, amountOfParticipants) }
-        
+        getActivity(typeActivity,amountOfParticipants)
 
-    }
-
-    private fun retrofitService() : Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
-    private fun priceRangeToText(price : Double):String {
-        return when{
-            price == 0.0 -> R.string.priceFree.toString()
-            price <= 0.3 -> R.string.priceLow.toString()
-            price <= 0.6 -> R.string.priceMedium.toString()
-            else -> R.string.priceHigh.toString()
+        binding.btnAnother.setOnClickListener {
+            getActivity(typeActivity,amountOfParticipants)
         }
+
     }
-
-    private fun getActivity(query: String, participants : String) {
+    private fun getActivity(typeActivity: String, amountOfParticipants : String) {
+        showOrHideComponents(false)
         CoroutineScope(Dispatchers.IO).launch {
-
-            val callResponse = retrofitService()
-                .create(BoredAPI::class.java)
-                .getThingsToDo(query.lowercase(Locale.getDefault()), participants)
-            val response: BoredResponse? = callResponse.body()
+            val response = BoredService().getActivity(typeActivity, amountOfParticipants)
             runOnUiThread {
-                if (callResponse.isSuccessful) {
-                    response.let {
-                            binding.tvActivities.text = response?.activity
-                            binding.tvParticipantsCount.text = response?.participants.toString()
-                            binding.tvPriceDesc.text = priceRangeToText(response!!.price)
-                            binding.tvType.text = response.type
-                        }
-                    }
+                response.let {
+                    showOrHideComponents(true)
+                    binding.tvActivities.text = response?.activity
+                    binding.tvParticipantsCount.text = response?.participants.toString()
+                    binding.tvPriceDesc.text = UtilsFunc().priceRangeToText(response!!.price)
+                    binding.tvType.text = response.type
                 }
             }
         }
-
     }
+
+    private fun showOrHideComponents(flag: Boolean) {
+        with(binding) {
+            tvActivities.isVisible = flag
+            tvPrice.isVisible = flag
+            tvPriceDesc.isVisible = flag
+            tvType.isVisible = flag
+            tvParticipantsCount.isVisible = flag
+            tvParticipants.isVisible = flag
+            btnAnother.isEnabled = flag
+            progressBar.isVisible = !flag
+        }
+    }
+
+}
 
