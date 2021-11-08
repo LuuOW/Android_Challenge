@@ -15,7 +15,6 @@ class CustomAdapter(private val activityList: Array<ActivityList>,var listener: 
         fun onClickActivity(query : String)
     }
 
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val activityType: TextView = view.findViewById(R.id.activity_name)
         
@@ -24,9 +23,7 @@ class CustomAdapter(private val activityList: Array<ActivityList>,var listener: 
                 listener.onClickActivity(activityType.text.toString())
             }
         }
-
     }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.card_view, viewGroup, false)

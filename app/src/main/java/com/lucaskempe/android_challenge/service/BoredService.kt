@@ -12,15 +12,13 @@ import java.lang.Exception
 import java.util.*
 
 class BoredService() {
-
+ //service call and response body return
     suspend fun getActivity(type: String, participants: String) : BoredResponse? {
         var body : BoredResponse? = null
-
             val callResponse = retrofitService.retrofit
                 .create(BoredAPI::class.java)
                 .getThingsToDo(type.lowercase(Locale.getDefault()), participants)
             val response: BoredResponse? = callResponse.body()
-
             if (callResponse.isSuccessful) {
                 body = response
             }

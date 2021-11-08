@@ -4,6 +4,7 @@ import com.lucaskempe.android_challenge.service.api.BoredAPI
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+//Retrofit Instance
 object retrofitService {
     val retrofit: Retrofit
         get() {

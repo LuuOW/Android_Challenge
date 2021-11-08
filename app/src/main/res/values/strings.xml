@@ -40,4 +40,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="price">Price</string>
     <string name="tryAnother">Try another</string>
+    <string name="activities">Activities</string>
+    <string name="random">Random</string>
 </resources>

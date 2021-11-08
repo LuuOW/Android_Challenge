@@ -13,5 +13,6 @@ interface BoredAPI {
   suspend fun getThingsToDo(@Query("type")activity: String,
                             @Query("participants") participants: String) : Response<BoredResponse>
 
+  //TODO:Implement the random search button using this function
   suspend fun getRandomThingToDo() : Response<BoredResponse>
 }

@@ -14,11 +14,18 @@ import com.lucaskempe.android_challenge.databinding.ActivityListTypeBinding
 
 
 class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
+    /******************** ListTypeActivity *******************
+    Activity in charge of loading the recyclerView and sending
+    the name of the activity type along with the number of participants
+    to the next activity
+     **********************************************************/
 
-
+    //the list of activities is created using the enum class
     private val listTypeActivity = ActivityList.values()
     private val adapter = CustomAdapter(listTypeActivity, this)
+
     private lateinit var binding: ActivityListTypeBinding
+
     private var amountOfParticipants : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +43,9 @@ class ListTypeActivity : AppCompatActivity(), CustomAdapter.CustomListener {
     }
 
     override fun onClickActivity(query : String) {
+        //serves to be sure that the parameters are being sent
         Toast.makeText(this, "$query - $amountOfParticipants", Toast.LENGTH_SHORT).show()
+
        val intent = Intent(this, ToDoActivity::class.java).apply {
             putExtra("participants", amountOfParticipants)
             putExtra("activityType", query)

@@ -3,6 +3,7 @@ package com.lucaskempe.android_challenge
 const val EMPTY_STRING: String = ""
 const val EMPTY_INT: Int = 0
 
+//I change the price for a text according to its range ... PS: I did not know where to put this function
 class UtilsFunc(){
     fun priceRangeToText(price : Double):String {
         return when{
@@ -12,4 +13,5 @@ class UtilsFunc(){
             else -> "High"
         }
     }
+
 }
